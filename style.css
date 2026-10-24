@@ -398,3 +398,55 @@ footer {
     border-color: var(--accent-color);
     transform: scale(1.05);
 }
+
+/* Effet flou pour les albums protégés */
+.tile.locked img {
+    filter: blur(12px);
+    transition: filter 0.5s ease;
+}
+
+/* Style des boutons de filtre */
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    background-color: transparent;
+    border: 2px solid #333;
+    color: #333;
+    padding: 8px 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover, 
+.filter-btn.active {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Animation d'affichage des tuiles lors du filtrage */
+.tile {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Empêche les tuiles de s'étirer quand il y a peu de résultats lors du filtrage */
+.tiles-grid {
+    display: grid;
+    /* Ajuste selon la taille standard de tes tuiles (par exemple 300px ou 280px) */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+    justify-content: start; /* Aligne les tuiles restantes à gauche */
+}
+
+/* S'assure que chaque tuile garde une taille fixe et ne zoome pas bêtement */
+.tiles-grid .tile {
+    width: 100%;
+    max-width: none;
+}

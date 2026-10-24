@@ -37,9 +37,19 @@
             <p>Découvrez mes sélections de shootings et reportages photo</p>
         </div>
 
+        <!-- BOUTONS DE FILTRE -->
+        <div class="filter-buttons">
+            <button class="filter-btn active" onclick="filtrerGalerie('tous', this)">Tous</button>
+            <button class="filter-btn" onclick="filtrerGalerie('Voyage', this)">Voyage</button>
+            <button class="filter-btn" onclick="filtrerGalerie('Basket', this)">Basket</button>
+            <button class="filter-btn" onclick="filtrerGalerie('Animaux', this)">Animaux</button>
+            <button class="filter-btn" onclick="filtrerGalerie('Photos', this)">Photos</button>
+            <button class="filter-btn" onclick="filtrerGalerie('Evenement', this)">Événement</button>
+        </div>
+
         <div class="tiles-grid">
-            <!-- Tuile 1 : GRÈCE (Remplacé ici) -->
-            <div class="tile" onclick="ouvrirEvenement('Grèce')">
+            <!-- Tuile : GRÈCE -->
+            <div class="tile" data-categorie="Voyage" onclick="ouvrirEvenement('Grèce')">
                 <img src="Grèce/Grece-26.JPG" alt="Album Grèce">
                 <div class="tile-overlay">
                     <span class="tile-category">Voyage • 36 photos</span>
@@ -48,7 +58,7 @@
             </div>
 
             <!-- Tuile : PORTUGAL -->
-            <div class="tile" onclick="ouvrirEvenement('Portugal')">
+            <div class="tile" data-categorie="Voyage" onclick="ouvrirEvenement('Portugal')">
                 <img src="Portugal/Portugal-4.jpg" alt="Album Portugal">
                 <div class="tile-overlay">
                     <span class="tile-category">Voyage • 32 photos</span>
@@ -57,20 +67,83 @@
             </div>
 
             <!-- Tuile : SGOSFF -->
-            <div class="tile" onclick="ouvrirEvenement('SGOSFF')">
+            <div class="tile" data-categorie="Basket" onclick="ouvrirEvenement('SGOSFF')">
                 <img src="SGOSFF/SGOSFF-10.JPG" alt="Album SGOSFF">
                 <div class="tile-overlay">
-                    <span class="tile-category">Basket • 20 Photos</span>
+                    <span class="tile-category">Basket • 20 photos</span>
                     <h3 class="tile-title">SGOSFF</h3>
                 </div>
             </div>
 
             <!-- Tuile : BJT -->
-            <div class="tile" onclick="ouvrirEvenement('BJT')">
+            <div class="tile" data-categorie="Basket" onclick="ouvrirEvenement('BJT')">
                 <img src="BJT/BJT-21.JPG" alt="Album BJT">
                 <div class="tile-overlay">
-                    <span class="tile-category">Basket • 21 Photos</span>
+                    <span class="tile-category">Basket • 21 photos</span>
                     <h3 class="tile-title">Bernard Joly Trophée 2026</h3>
+                </div>
+            </div>
+
+            <!-- Tuile : PARIS -->
+            <div class="tile" data-categorie="Voyage" onclick="ouvrirEvenement('Paris')">
+                <img src="Paris/Paris-10.JPG" alt="Album Paris">
+                <div class="tile-overlay">
+                    <span class="tile-category">Voyage • 11 photos</span>
+                    <h3 class="tile-title">Paris</h3>
+                </div>
+            </div>
+
+            <!-- Tuile : BRETAGNE -->
+            <div class="tile" data-categorie="Voyage" onclick="ouvrirEvenement('Bretagne')">
+                <img src="Bretagne/Bretagne-1.JPG" alt="Album Bretagne">
+                <div class="tile-overlay">
+                    <span class="tile-category">Voyage • 21 photos</span>
+                    <h3 class="tile-title">Bretagne</h3>
+                </div>
+            </div>
+
+            <!-- Tuile : FDM -->
+            <div class="tile" data-categorie="Evenement" onclick="ouvrirEvenement('FDM')">
+                <img src="FDM/FDM-4.JPG" alt="Album FDM">
+                <div class="tile-overlay">
+                    <span class="tile-category">Evenement • 9 photos</span>
+                    <h3 class="tile-title">Fête de la Musique 2025</h3>
+                </div>
+            </div>
+
+            <!-- Tuile : STREET -->
+            <div class="tile" data-categorie="Voyage" onclick="ouvrirEvenement('Street')">
+                <img src="Street/Street-6.JPG" alt="Album Street">
+                <div class="tile-overlay">
+                    <span class="tile-category">Voyage • 14 photos</span>
+                    <h3 class="tile-title">Street</h3>
+                </div>
+            </div>
+
+            <!-- Tuile : CHAT -->
+            <div class="tile" data-categorie="Animaux" onclick="ouvrirEvenement('Chat')">
+                <img src="Chat/Chat-1.JPG" alt="Album Chat">
+                <div class="tile-overlay">
+                    <span class="tile-category">Animaux • 11 photos</span>
+                    <h3 class="tile-title">Chat</h3>
+                </div>
+            </div>
+            
+            <!-- Tuile : PORTRAIT -->
+            <div class="tile" data-categorie="Photos" onclick="ouvrirEvenement('Portrait')">
+                <img src="Portrait/Portrait-5.JPG" alt="Album Portrait">
+                <div class="tile-overlay">
+                    <span class="tile-category">Photos • 5 photos</span>
+                    <h3 class="tile-title">Portrait</h3>
+                </div>
+            </div>
+
+            <!-- Tuile : FAMILLE (PROTÉGÉ) -->
+            <div class="tile locked" data-categorie="Photos" onclick="ouvrirEvenement('Famille', this)">
+                <img src="Famille/Famille-2.JPG" alt="Album Famille">
+                <div class="tile-overlay">
+                    <span class="tile-category">🔒 Protégé • 8 photos</span>
+                    <h3 class="tile-title">Famille</h3>
                 </div>
             </div>
         </div>
@@ -93,31 +166,30 @@
 
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 Pierre Nouvelot LOL - Tous droits réservés.</p>
+        <p>&copy; 2026 Pierre Nouvelot - Tous droits réservés.</p>
     </footer>
+
+    <!-- HTML DE LA LIGHTBOX -->
+    <div id="lightbox" class="lightbox">
+        <!-- Bouton Croix avec action directe en HTML -->
+        <button type="button" id="lightbox-close" class="lightbox-close" onclick="fermerLightbox()">&times;</button>
+        
+        <button class="lightbox-prev" onclick="changerPhoto(-1)">&#10094;</button>
+        
+        <div class="lightbox-content">
+            <img class="lightbox-img" id="lightbox-img" src="" alt="Photo aperçu">
+            <div class="lightbox-counter" id="lightbox-counter">1 / 36</div>
+        </div>
+
+        <button class="lightbox-next" onclick="changerPhoto(1)">&#10095;</button>
+
+        <!-- Barre de miniatures en bas -->
+        <div class="lightbox-thumbnails" id="lightbox-thumbnails">
+            <!-- Les miniatures seront injectées automatiquement par le JavaScript -->
+        </div>
+    </div>
 
     <!-- Lien vers le fichier JavaScript externe -->
     <script src="script.js"></script>
-
-
-<!-- HTML DE LA LIGHTBOX -->
-    <div id="lightbox" class="lightbox">
-    <!-- Bouton Croix avec action directe en HTML -->
-    <button type="button" id="lightbox-close" class="lightbox-close" onclick="fermerLightbox()">&times;</button>
-    
-    <button class="lightbox-prev" onclick="changerPhoto(-1)">&#10094;</button>
-    
-    <div class="lightbox-content">
-        <img class="lightbox-img" id="lightbox-img" src="" alt="Photo Grèce">
-        <div class="lightbox-counter" id="lightbox-counter">1 / 36</div>
-    </div>
-
-    <button class="lightbox-next" onclick="changerPhoto(1)">&#10095;</button>
-
-    <!-- Barre de miniatures en bas -->
-    <div class="lightbox-thumbnails" id="lightbox-thumbnails">
-        <!-- Les miniatures seront injectées automatiquement par le JavaScript -->
-    </div>
-</div>
-</div>
+</body>
 </html>
