@@ -55,7 +55,7 @@ for (let i = 1; i <= 11; i++) { // Modifie le nombre si tu as plus ou moins de p
 // --- ALBUM PORTRAIT ---
 let photosPortrait = [];
 for (let i = 1; i <= 5; i++) {
-    photosPortrait.push(`Portrait/Portrait-${i}.JPG`);
+    photosPortrait.push(`Portrait/Portrait-${i}.jpg`);
 }
 
 // --- ALBUM FAMILLE (PROTÉGÉ) ---
