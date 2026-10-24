@@ -86,9 +86,11 @@ function chargerMiniatures(photos) {
         thumbsContainer.appendChild(thumb);
     });
 }
-
 // Fonction déclenchée au clic sur une tuile
 function ouvrirEvenement(nomEvenement, element) {
+    // On réinitialise proprement le tableau avant d'attribuer
+    photosActuelles = [];
+
     if (nomEvenement === 'Grèce') {
         photosActuelles = photosGrece;
     } else if (nomEvenement === 'Portugal') {
@@ -117,16 +119,18 @@ function ouvrirEvenement(nomEvenement, element) {
         }
         photosActuelles = photosFamille;
         
-        // Si le mot de passe est bon, on enlève le flou de la tuile sur la page !
         if (element) {
             element.classList.remove('locked');
         }
     }
 
-    if (photosActuelles.length > 0) {
+    // Sécurité : on s'assure qu'on a bien des photos avant d'ouvrir la lightbox
+    if (photosActuelles && photosActuelles.length > 0) {
         currentIndex = 0;
         chargerMiniatures(photosActuelles);
         afficherLightbox();
+    } else {
+        console.error("Erreur : Aucun album trouvé pour " + nomEvenement);
     }
 }
 
