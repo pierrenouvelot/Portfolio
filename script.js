@@ -1,67 +1,67 @@
 // --- ALBUM GRÈCE ---
 let photosGrece = [];
 for (let i = 1; i <= 36; i++) {
-    photosGrece.push(`Grèce/Grece-${i}.JPG`);
+    photosGrece.push(`Grèce/Grece-${i}.webp`);
 }
 
 // --- ALBUM PORTUGAL ---
 let photosPortugal = [];
 for (let i = 1; i <= 32; i++) {
-    photosPortugal.push(`Portugal/Portugal-${i}.JPG`);
+    photosPortugal.push(`Portugal/Portugal-${i}.webp`);
 }
 
 // --- ALBUM SGOSFF ---
 let photosSgosff = [];
 for (let i = 1; i <= 32; i++) {
-    photosSgosff.push(`SGOSFF/SGOSFF-${i}.JPG`);
+    photosSgosff.push(`SGOSFF/SGOSFF-${i}.webp`);
 }
 
 // --- ALBUM BJT ---
 let photosBjt = [];
 for (let i = 1; i <= 32; i++) {
-    photosBjt.push(`BJT/BJT-${i}.JPG`);
+    photosBjt.push(`BJT/BJT-${i}.webp`);
 }
 
 // --- ALBUM PARIS ---
 let photosParis = [];
 for (let i = 1; i <= 11; i++) {
-    photosParis.push(`Paris/Paris-${i}.JPG`);
+    photosParis.push(`Paris/Paris-${i}.webp`);
 }
 
 // --- ALBUM BRETAGNE ---
 let photosBretagne = [];
 for (let i = 1; i <= 21; i++) {
-    photosBretagne.push(`Bretagne/Bretagne-${i}.JPG`);
+    photosBretagne.push(`Bretagne/Bretagne-${i}.webp`);
 }
 
 // --- ALBUM FDM ---
 let photosFdm = [];
 for (let i = 1; i <= 9; i++) {
-    photosFdm.push(`FDM/FDM-${i}.JPG`);
+    photosFdm.push(`FDM/FDM-${i}.webp`);
 }
 
 // --- ALBUM STREET ---
 let photosStreet = [];
 for (let i = 1; i <= 14; i++) {
-    photosStreet.push(`Street/Street-${i}.JPG`);
+    photosStreet.push(`Street/Street-${i}.webp`);
 }
 
 // --- ALBUM CHAT ---
 let photosChat = [];
-for (let i = 1; i <= 11; i++) { // Modifie le nombre si tu as plus ou moins de photos
-    photosChat.push(`Chat/Chat-${i}.JPG`);
+for (let i = 1; i <= 10; i++) {
+    photosChat.push(`Chat/Chat-${i}.webp`);
 }
 
 // --- ALBUM PORTRAIT ---
 let photosPortrait = [];
 for (let i = 1; i <= 5; i++) {
-    photosPortrait.push(`Portrait/Portrait-${i}.jpg`);
+    photosPortrait.push(`Portrait/Portrait-${i}.webp`);
 }
 
 // --- ALBUM FAMILLE (PROTÉGÉ) ---
 let photosFamille = [];
-for (let i = 1; i <= 8; i++) { // Adapte le nombre de photos si besoin
-    photosFamille.push(`Famille/Famille-${i}.JPG`);
+for (let i = 1; i <= 8; i++) {
+    photosFamille.push(`Famille/Famille-${i}.webp`);
 }
 
 // Tableau actif en cours de visionnage
