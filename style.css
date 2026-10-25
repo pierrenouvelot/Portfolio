@@ -132,20 +132,50 @@ section.gallery-section {
     font-size: 0.95rem;
 }
 
+/* --- SYSTÈMES DE FILTRE & GRILLE --- */
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    background-color: transparent;
+    border: 2px solid #333;
+    color: #333;
+    padding: 8px 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover, 
+.filter-btn.active {
+    background-color: #333;
+    color: #fff;
+}
+
 .tiles-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
     gap: 30px;
+    justify-content: start; /* Aligne les tuiles restantes à gauche */
 }
 
 .tile {
     position: relative;
     height: 400px;
+    width: 100%;
+    max-width: none;
     border-radius: 8px;
     overflow: hidden;
     cursor: pointer;
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    transition: var(--transition);
+    transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.4s ease;
 }
 
 .tile img {
@@ -192,6 +222,12 @@ section.gallery-section {
 
 .tile:hover img {
     transform: scale(1.08);
+}
+
+/* Effet flou pour les albums protégés */
+.tile.locked img {
+    filter: blur(12px);
+    transition: filter 0.5s ease;
 }
 
 /* --- SECTION À PROPOS & CONTACT --- */
@@ -249,27 +285,6 @@ footer {
     font-size: 0.85rem;
 }
 
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
-    40% { transform: translateY(-10px) translateX(-50%); }
-    60% { transform: translateY(-5px) translateX(-50%); }
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-    nav { padding: 15px 20px; }
-    nav ul { display: none; }
-    section.gallery-section, .about-contact-section { padding: 60px 20px; }
-    .tiles-grid { grid-template-columns: 1fr; }
-    .about-contact-container { grid-template-columns: 1fr; gap: 40px; }
-}
-
 /* --- STYLES DE LA LIGHTBOX --- */
 .lightbox {
     display: none;
@@ -311,7 +326,7 @@ footer {
     font-size: 50px;
     font-weight: 200;
     cursor: pointer;
-    z-index: 3000; /* Priorité maximale pour qu'il soit cliquable en tout premier */
+    z-index: 3000;
     transition: var(--transition);
     line-height: 1;
 }
@@ -330,7 +345,6 @@ footer {
     border: none;
     font-size: 24px;
     padding: 16px 20px;
-    cursor: pointer;
     transition: var(--transition);
     border-radius: 4px;
     z-index: 2005;
@@ -351,8 +365,8 @@ footer {
     letter-spacing: 2px;
 }
 
-/* Barre de miniatures en bas */
-.lightbox-thumbnails {
+/* Barre du bas (Miniatures + Bouton Plein Écran) */
+.lightbox-bottom-bar {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -360,9 +374,16 @@ footer {
     height: 100px;
     background: rgba(0, 0, 0, 0.8);
     display: flex;
+    align-items: center;
+    padding: 15px;
+    z-index: 1000;
+}
+
+.lightbox-thumbnails {
+    display: flex;
     overflow-x: auto;
     gap: 10px;
-    padding: 15px;
+    max-width: 80%;
     align-items: center;
     scrollbar-width: thin;
     scrollbar-color: var(--accent-color) #222;
@@ -399,54 +420,47 @@ footer {
     transform: scale(1.05);
 }
 
-/* Effet flou pour les albums protégés */
-.tile.locked img {
-    filter: blur(12px);
-    transition: filter 0.5s ease;
-}
-
-/* Style des boutons de filtre */
-.filter-buttons {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 30px;
-}
-
-.filter-btn {
-    background-color: transparent;
-    border: 2px solid #333;
-    color: #333;
-    padding: 8px 18px;
-    border-radius: 25px;
+/* Bouton Plein Écran calé tout à droite */
+.lightbox-fullscreen {
+    margin-left: auto;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
+    font-size: 0.85rem;
+    backdrop-filter: blur(5px);
+    transition: var(--transition);
+    white-space: nowrap;
+    margin-right: 20px;
 }
 
-.filter-btn:hover, 
-.filter-btn.active {
-    background-color: #333;
-    color: #fff;
+.lightbox-fullscreen:hover {
+    background-color: var(--accent-color);
+    color: #000;
+    border-color: var(--accent-color);
 }
 
-/* Animation d'affichage des tuiles lors du filtrage */
-.tile {
-    transition: transform 0.3s ease, opacity 0.3s ease;
+/* --- ANIMATIONS --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* Empêche les tuiles de s'étirer quand il y a peu de résultats lors du filtrage */
-.tiles-grid {
-    display: grid;
-    /* Ajuste selon la taille standard de tes tuiles (par exemple 300px ou 280px) */
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
-    justify-content: start; /* Aligne les tuiles restantes à gauche */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+    40% { transform: translateY(-10px) translateX(-50%); }
+    60% { transform: translateY(-5px) translateX(-50%); }
 }
 
-/* S'assure que chaque tuile garde une taille fixe et ne zoome pas bêtement */
-.tiles-grid .tile {
-    width: 100%;
-    max-width: none;
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 768px) {
+    nav { padding: 15px 20px; }
+    nav ul { display: none; }
+    section.gallery-section, .about-contact-section { padding: 60px 20px; }
+    .tiles-grid { grid-template-columns: 1fr; }
+    .about-contact-container { grid-template-columns: 1fr; gap: 40px; }
+    .lightbox-fullscreen { font-size: 0.75rem; padding: 6px 10px; }
 }

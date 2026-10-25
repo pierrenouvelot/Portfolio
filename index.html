@@ -89,7 +89,7 @@
                 <img src="Paris/Paris-10.webp" alt="Album Paris" loading="lazy">
                 <div class="tile-overlay">
                     <span class="tile-category">Voyage • 11 photos</span>
-                    <h3 class="tile-title">Paris</h3>
+                    <h3 class="tile-title">Paris </h3>
                 </div>
             </div>
         
@@ -142,7 +142,7 @@
             <div class="tile locked" data-categorie="Photos" onclick="ouvrirEvenement('Famille', this)">
                 <img src="Famille/Famille-2.webp" alt="Album Famille" loading="lazy">
                 <div class="tile-overlay">
-                    <span class="tile-category">🔒 Protégé • 8 photos</span>
+                    <span class="tile-category">🔒 Protégé • 3 photos</span>
                     <h3 class="tile-title">Famille</h3>
                 </div>
             </div>
@@ -171,7 +171,7 @@
 
     <!-- HTML DE LA LIGHTBOX -->
     <div id="lightbox" class="lightbox">
-        <!-- Bouton Croix avec action directe en HTML -->
+        <!-- Bouton Croix de fermeture -->
         <button type="button" id="lightbox-close" class="lightbox-close" onclick="fermerLightbox()">&times;</button>
         
         <button class="lightbox-prev" onclick="changerPhoto(-1)">&#10094;</button>
@@ -183,9 +183,12 @@
 
         <button class="lightbox-next" onclick="changerPhoto(1)">&#10095;</button>
 
-        <!-- Barre de miniatures en bas -->
-        <div class="lightbox-thumbnails" id="lightbox-thumbnails">
-            <!-- Les miniatures seront injectées automatiquement par le JavaScript -->
+        <!-- Barre de miniatures et Bouton Plein Écran regroupés en bas -->
+        <div class="lightbox-bottom-bar">
+            <div class="lightbox-thumbnails" id="lightbox-thumbnails">
+                <!-- Les miniatures seront injectées automatiquement par le JavaScript -->
+            </div>
+            <button type="button" class="lightbox-fullscreen" onclick="basculerPleinEcran()" title="Plein écran">⛶ Plein écran</button>
         </div>
     </div>
 

@@ -12,13 +12,13 @@ for (let i = 1; i <= 32; i++) {
 
 // --- ALBUM SGOSFF ---
 let photosSgosff = [];
-for (let i = 1; i <= 32; i++) {
+for (let i = 1; i <= 20; i++) {
     photosSgosff.push(`SGOSFF/SGOSFF-${i}.webp`);
 }
 
 // --- ALBUM BJT ---
 let photosBjt = [];
-for (let i = 1; i <= 32; i++) {
+for (let i = 1; i <= 21; i++) {
     photosBjt.push(`BJT/BJT-${i}.webp`);
 }
 
@@ -48,7 +48,7 @@ for (let i = 1; i <= 14; i++) {
 
 // --- ALBUM CHAT ---
 let photosChat = [];
-for (let i = 1; i <= 10; i++) {
+for (let i = 1; i <= 11; i++) {
     photosChat.push(`Chat/Chat-${i}.webp`);
 }
 
@@ -60,7 +60,7 @@ for (let i = 1; i <= 5; i++) {
 
 // --- ALBUM FAMILLE (PROTÉGÉ) ---
 let photosFamille = [];
-for (let i = 1; i <= 8; i++) {
+for (let i = 1; i <= 3; i++) {
     photosFamille.push(`Famille/Famille-${i}.webp`);
 }
 
@@ -172,11 +172,20 @@ function changerPhoto(direction) {
     afficherLightbox();
 }
 
-// Fermeture de la lightbox
+// Fonction pour fermer la lightbox et quitter le plein écran
 function fermerLightbox() {
     const lightbox = document.getElementById('lightbox');
     if (lightbox) {
         lightbox.style.display = 'none';
+    }
+
+    // Quitter le mode plein écran s'il est actif
+    if (document.fullscreenElement || document.webkitFullscreenElement) {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        }
     }
 }
 
@@ -227,4 +236,25 @@ function filtrerGalerie(categorie, bouton) {
             setTimeout(() => tile.style.display = 'none', 300);
         }
     });
+}
+
+// Fonction pour activer ou quitter le mode plein écran manuellement
+function basculerPleinEcran() {
+    const lightbox = document.getElementById('lightbox');
+    
+    if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+        // Entrer en plein écran
+        if (lightbox.requestFullscreen) {
+            lightbox.requestFullscreen();
+        } else if (lightbox.webkitRequestFullscreen) {
+            lightbox.webkitRequestFullscreen();
+        }
+    } else {
+        // Quitter le plein écran
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        }
+    }
 }
