@@ -1,7 +1,7 @@
 // --- ALBUM GRÈCE ---
 let photosGrece = [];
 for (let i = 1; i <= 36; i++) {
-    photosGrece.push(`Grèce/Grece-${i}.webp`);
+    photosGrece.push(`Grece/Grece-${i}.webp`);
 }
 
 // --- ALBUM PORTUGAL ---
