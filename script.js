@@ -58,9 +58,21 @@ for (let i = 1; i <= 5; i++) {
     photosPortrait.push(`Portrait/Portrait-${i}.webp`);
 }
 
+// --- ALBUM BDS ---
+let photosBds = [];
+for (let i = 1; i <= 15; i++) {
+    photosBds.push(`BDS/BDS-${i}.webp`);
+}
+
+// --- ALBUM ZOO ---
+let photosZoo = [];
+for (let i = 1; i <= 14; i++) {
+    photosZoo.push(`Zoo/Zoo-${i}.webp`);
+}
+
 // --- ALBUM FAMILLE (PROTÉGÉ) ---
 let photosFamille = [];
-for (let i = 1; i <= 3; i++) {
+for (let i = 1; i <= 11; i++) {
     photosFamille.push(`Famille/Famille-${i}.webp`);
 }
 
@@ -86,6 +98,7 @@ function chargerMiniatures(photos) {
         thumbsContainer.appendChild(thumb);
     });
 }
+
 // Fonction déclenchée au clic sur une tuile
 function ouvrirEvenement(nomEvenement, element) {
     // On réinitialise proprement le tableau avant d'attribuer
@@ -111,6 +124,10 @@ function ouvrirEvenement(nomEvenement, element) {
         photosActuelles = photosChat;
     } else if (nomEvenement === 'Portrait') {
         photosActuelles = photosPortrait;
+    } else if (nomEvenement === 'BDS') {        // <-- Ajouté ici
+        photosActuelles = photosBds;
+    } else if (nomEvenement === 'Zoo') {        // <-- Ajouté ici
+        photosActuelles = photosZoo;
     } else if (nomEvenement === 'Famille') {
         let motDePasseSaisi = prompt("🔒 Cet album est protégé. Entre le mot de passe :");
         if (motDePasseSaisi !== "pierrot") {

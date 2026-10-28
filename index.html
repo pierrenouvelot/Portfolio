@@ -25,23 +25,23 @@
     <header class="hero" id="accueil">
         <div class="hero-content">
             <h1 class="hero-title">Pierre Nouvelot</h1>
-            <p class="hero-subtitle">Photographie Amateur</p>
+            <p class="hero-subtitle">Photographe Amateur</p>
         </div>
-        <a href="#galerie" class="scroll-down">↓</a>
+        <a href="" class="scroll-down">↓</a>
     </header>
 
     <!-- PAGE GALERIE (TUILES) -->
     <section class="gallery-section" id="galerie">
         <div class="section-header">
-            <h2>Galerie & Événements</h2>
-            <p>Découvrez mes sélections de shootings et reportages photo</p>
+            <h2>Galerie photos & Événements</h2>
+            <p>Découvrez mes sélections de photos</p>
         </div>
 
         <!-- BOUTONS DE FILTRE -->
         <div class="filter-buttons">
             <button class="filter-btn active" onclick="filtrerGalerie('tous', this)">Tous</button>
             <button class="filter-btn" onclick="filtrerGalerie('Voyage', this)">Voyage</button>
-            <button class="filter-btn" onclick="filtrerGalerie('Basket', this)">Basket</button>
+            <button class="filter-btn" onclick="filtrerGalerie('Sport', this)">Sport</button>
             <button class="filter-btn" onclick="filtrerGalerie('Animaux', this)">Animaux</button>
             <button class="filter-btn" onclick="filtrerGalerie('Photos', this)">Photos</button>
             <button class="filter-btn" onclick="filtrerGalerie('Evenement', this)">Événement</button>
@@ -57,6 +57,15 @@
                 </div>
             </div>
         
+            <!-- Tuile : PARIS -->
+            <div class="tile" data-categorie="Voyage" onclick="ouvrirEvenement('Paris')">
+                <img src="Paris/Paris-10.webp" alt="Album Paris" loading="lazy">
+                <div class="tile-overlay">
+                    <span class="tile-category">Voyage • 11 photos</span>
+                    <h3 class="tile-title">Paris 🇫🇷</h3>
+                </div>
+            </div>
+
             <!-- Tuile : PORTUGAL -->
             <div class="tile" data-categorie="Voyage" onclick="ouvrirEvenement('Portugal')">
                 <img src="Portugal/Portugal-4.webp" alt="Album Portugal" loading="lazy">
@@ -66,17 +75,8 @@
                 </div>
             </div>
         
-            <!-- Tuile : SGOSFF -->
-            <div class="tile" data-categorie="Basket" onclick="ouvrirEvenement('SGOSFF')">
-                <img src="SGOSFF/SGOSFF-10.webp" alt="Album SGOSFF" loading="lazy">
-                <div class="tile-overlay">
-                    <span class="tile-category">Basket • 20 photos</span>
-                    <h3 class="tile-title">SGOSFF</h3>
-                </div>
-            </div>
-        
             <!-- Tuile : BJT -->
-            <div class="tile" data-categorie="Basket" onclick="ouvrirEvenement('BJT')">
+            <div class="tile" data-categorie="Sport" onclick="ouvrirEvenement('BJT')">
                 <img src="BJT/BJT-21.webp" alt="Album BJT" loading="lazy">
                 <div class="tile-overlay">
                     <span class="tile-category">Basket • 21 photos</span>
@@ -84,12 +84,12 @@
                 </div>
             </div>
         
-            <!-- Tuile : PARIS -->
-            <div class="tile" data-categorie="Voyage" onclick="ouvrirEvenement('Paris')">
-                <img src="Paris/Paris-10.webp" alt="Album Paris" loading="lazy">
+            <!-- Tuile : SGOSFF -->
+            <div class="tile" data-categorie="Sport" onclick="ouvrirEvenement('SGOSFF')">
+                <img src="SGOSFF/SGOSFF-10.webp" alt="Album SGOSFF" loading="lazy">
                 <div class="tile-overlay">
-                    <span class="tile-category">Voyage • 11 photos</span>
-                    <h3 class="tile-title">Paris </h3>
+                    <span class="tile-category">Basket • 20 photos</span>
+                    <h3 class="tile-title">SGOSFF</h3>
                 </div>
             </div>
         
@@ -98,7 +98,7 @@
                 <img src="Bretagne/Bretagne-1.webp" alt="Album Bretagne" loading="lazy">
                 <div class="tile-overlay">
                     <span class="tile-category">Voyage • 21 photos</span>
-                    <h3 class="tile-title">Bretagne</h3>
+                    <h3 class="tile-title">Bretagne 🇫🇷</h3>
                 </div>
             </div>
         
@@ -116,7 +116,7 @@
                 <img src="Street/Street-6.webp" alt="Album Street" loading="lazy">
                 <div class="tile-overlay">
                     <span class="tile-category">Voyage • 14 photos</span>
-                    <h3 class="tile-title">Street</h3>
+                    <h3 class="tile-title">Street 🌆</h3>
                 </div>
             </div>
         
@@ -134,15 +134,33 @@
                 <img src="Portrait/Portrait-5.webp" alt="Album Portrait" loading="lazy">
                 <div class="tile-overlay">
                     <span class="tile-category">Photos • 5 photos</span>
-                    <h3 class="tile-title">Portrait</h3>
+                    <h3 class="tile-title">Portrait 📸</h3>
+                </div>
+            </div>
+
+            <!-- Tuile : BDS -->
+            <div class="tile" data-categorie="Sport" onclick="ouvrirEvenement('BDS')">
+                <img src="BDS/BDS-11.webp" alt="Album BDS" loading="lazy">
+                <div class="tile-overlay">
+                    <span class="tile-category">Sport • 15 photos</span>
+                    <h3 class="tile-title">BDS - ESME Lyon</h3>
+                </div>
+            </div>
+
+            <!-- Tuile : ZOO -->
+            <div class="tile" data-categorie="Animaux" onclick="ouvrirEvenement('Zoo')">
+                <img src="Zoo/Zoo-1.webp" alt="Album Zoo" loading="lazy">
+                <div class="tile-overlay">
+                    <span class="tile-category">Animaux • 14 photos</span>
+                    <h3 class="tile-title">Zoo</h3>
                 </div>
             </div>
         
             <!-- Tuile : FAMILLE (PROTÉGÉ) -->
             <div class="tile locked" data-categorie="Photos" onclick="ouvrirEvenement('Famille', this)">
-                <img src="Famille/Famille-2.webp" alt="Album Famille" loading="lazy">
+                <img src="Famille/Famille-10.webp" alt="Album Famille" loading="lazy">
                 <div class="tile-overlay">
-                    <span class="tile-category">🔒 Protégé • 3 photos</span>
+                    <span class="tile-category">🔒 Protégé • 11 photos</span>
                     <h3 class="tile-title">Famille</h3>
                 </div>
             </div>
@@ -156,12 +174,12 @@
         <div class="about-contact-container">
             <div class="about-box">
                 <h2>À propos de moi</h2>
-                <p>Passionné par l'image et la captation des instants de vie, je pratique la photographie en amateur avec l'exigence d'un professionnel. J'aime jouer avec la lumière naturelle, les textures urbaines et les expressions authentiques.</p>
+                <p>Étudiant ingénieur de 21 ans, j'explore l'univers de la photographie avec l'envie constante d'apprendre et de progresser. Qu'il s'agisse de capturer l'intensité d'un événement, l'énergie d'une rencontre sportive ou la poésie d'un paysage découvert au fil de mes voyages, j'aime jouer avec la lumière et les contrastes pour figer l'instant présent et raconter une histoire authentique.</p>
             </div>
             <div class="contact-box">
                 <h2>Me contacter</h2>
-                <p>Un projet de shooting, une question ou une collaboration ? N'hésite pas à m'écrire.</p>
-                <a href="mailto:ton.email@exemple.com" class="contact-btn">Envoyer un e-mail</a>
+                <p>Un projet, une question ou une collaboration ? N'hésite pas à m'écrire.</p>
+                <a href="mailto:pnouvelot2@gmail.com" class="contact-btn">Envoyer un e-mail</a>
             </div>
         </div>
     </section>
