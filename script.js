@@ -122,8 +122,23 @@ function ouvrirEvenement(nomEvenement, element) {
         photosActuelles = photosStreet;
     } else if (nomEvenement === 'Chat') {
         photosActuelles = photosChat;
-    } else if (nomEvenement === 'Portrait') {
-        photosActuelles = photosPortrait;
+    } else if (nomEvenement === 'Famille' || nomEvenement === 'Portrait') {
+        let motDePasseSaisi = prompt("🔒 Cet album est protégé. Entre le mot de passe :");
+        if (motDePasseSaisi !== "pierrot") { // Remplace "pierrot" par le mot de passe de ton choix
+            alert("❌ Mot de passe incorrect !");
+            return;
+        }
+
+        // Attribution du bon tableau selon l'album cliqué
+        if (nomEvenement === 'Famille') {
+            photosActuelles = photosFamille;
+        } else if (nomEvenement === 'Portrait') {
+            photosActuelles = photosPortrait;
+        }
+        
+        if (element) {
+            element.classList.remove('locked');
+        }
     } else if (nomEvenement === 'BDS') {        // <-- Ajouté ici
         photosActuelles = photosBds;
     } else if (nomEvenement === 'Zoo') {        // <-- Ajouté ici
